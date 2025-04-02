@@ -6,7 +6,7 @@ from cybulde.utils.utils import get_logger
 
 @get_config(config_path="../configs", config_name="config")
 def version_data(config: Config) -> None:
-    logger = get_logger(Path(__file__).name)
+    # logger = get_logger(Path(__file__).name)
     initialize_dvc()
     print(config)
 
