@@ -12,8 +12,8 @@ else
 	DOCKER_COMPOSE_COMMAND = docker-compose
 endif
 
-SERVICE_NAME = app
-CONTAINER_NAME = cybulde-template-container
+SERVICE_NAME = app 
+CONTAINER_NAME = cybulde-data-container
 
 DIRS_TO_VALIDATE = cybulde
 DOCKER_COMPOSE_RUN = $(DOCKER_COMPOSE_COMMAND) run --rm $(SERVICE_NAME)
@@ -25,9 +25,9 @@ export
 guard-%:
 	@#$(or ${$*}, $(error $* is not set))
 
-## Call entrypoint
-entrypoint: up
-	$(DOCKER_COMPOSE_EXEC) python ./cybulde/entrypoint.py
+## Version Data
+version-data: up
+	$(DOCKER_COMPOSE_EXEC) python ./cybulde/version_data.py
 
 ## Starts jupyter lab
 notebook: up
